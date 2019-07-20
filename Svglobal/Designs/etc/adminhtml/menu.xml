@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Svglobal::top_level" module="Svglobal_Designs" resource="Svglobal_Designs::Designs" sortOrder="11" title="Svglobal"/>
+		<add action="designs/event/index" id="Svglobal::svglobal_designs" module="Svglobal_Designs" parent="Svglobal::top_level" resource="Svglobal_Designs::Designs" sortOrder="10" title="Manage Events"/>
+	</menu>
+</config>

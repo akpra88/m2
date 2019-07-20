@@ -1,0 +1,30 @@
+<?php
+$collection = $block->getEventCollection();
+$data = $collection->getData();
+if (!empty($data)) {
+    ?>
+    <div>
+        <div>
+            <h3>Events</h3>
+        </div>
+            <?php foreach ($data as $_details) { ?>
+                <div>
+					<div><strong>Event Name: </strong><?= $_details['eventname'];?></div>
+					<div><strong>Event Date: </strong><?= $_details['eventdate'];?></div>
+					<p><?= $_details['description'];?></p>
+					<img src="<?= $block->getMediaUrl() . $_details['image'] ?>" alt="<?= $_details['eventname'];?>" height="200" width="500">
+                </div>
+            <?php } ?>
+    </div>
+<?php } else { ?>
+    <div>
+        <div>
+            <h3>Events</h3>
+        </div>
+        <div class="message info empty">
+            <div>
+                <?= /* @escapeNotVerified */ __('We can\'t find Events matching the selection.') ?>
+            </div>
+        </div>
+    </div>
+<?php } ?>

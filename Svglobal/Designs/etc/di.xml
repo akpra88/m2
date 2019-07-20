@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Svglobal\Designs\Api\EventRepositoryInterface" type="Svglobal\Designs\Model\EventRepository"/>
+	<preference for="Svglobal\Designs\Api\Data\EventInterface" type="Svglobal\Designs\Model\Event"/>
+	<preference for="Svglobal\Designs\Api\Data\EventSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="Svglobal\Designs\Model\ResourceModel\Event\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">svglobal_events</argument>
+			<argument name="resourceModel" xsi:type="string">Svglobal\Designs\Model\ResourceModel\Event\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="akp_event_grid_data_source" xsi:type="string">Svglobal\Designs\Model\ResourceModel\Event\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+	<type name="Svglobal\Designs\Block\Index\Index">
+	    <arguments>
+	        <argument name="templateProcessor" xsi:type="object">Magento\Widget\Model\Template\Filter</argument>
+	    </arguments>
+	</type>
+	<type name="Svglobal\Designs\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">evnt/tmp/image</argument>
+            <argument name="basePath" xsi:type="string">evnt/image</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
